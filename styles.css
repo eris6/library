@@ -1,0 +1,115 @@
+:root{
+    --dark-gren: #102820;
+    --hunter-green: #4C6444;
+    --khaki: #CABA9C;
+    --cream: #F2E3D5;
+    --raw-umber: #8A6240;
+    --cafe-noir: #4D2D18;
+}
+
+*{
+    font-family: 'Times New Roman', 'Franklin Gothic Medium', Times, serif;
+}
+
+body{
+    background-color: var(--raw-umber);
+}
+
+.header{
+    text-align: center;
+}
+
+.library-text{
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    color: var(--cream);
+    font-size: 4.5rem;
+}
+
+
+.add-book-button > button{
+    width: 100%;
+    background-color: var(--cafe-noir);
+    border: 0;
+    color: var(--cream);
+    padding: 1em;
+    font-size: 2rem;
+    border-radius: 40px;
+    box-shadow: 2px 3px 5px black;
+}
+
+.add-book-button > button:hover{
+    background-color: #cc895d;
+    color: var(--cafe-noir);
+    box-shadow: 4px 5px 5px black;
+}
+
+#book-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 50px 50px;
+    margin-top: 50px;
+
+}
+
+
+.card{
+    height: 200px;
+    position: relative;
+    background-color: #cc895d;
+    border: 3px solid var(--cafe-noir);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+
+    color: var(--cream);
+    font-size: 150%;
+}
+
+
+
+.card-delete{
+    height: 200px;
+    position: relative;
+    background-color: #cc895d;
+    border: 3px solid var(--cafe-noir);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    color: var(--cream);
+    font-size: 150%;
+}
+
+
+.delete-button{
+    background-color: var(--hunter-green);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: block;
+    float:right;
+    margin:5px 5px 0 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    border: 2px solid var(--dark-gren);
+}
+
+.delete-button:hover{
+    background-color: var(--dark-gren);
+}
+
+
+
+
+
+
