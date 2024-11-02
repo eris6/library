@@ -27,7 +27,7 @@ body{
 }
 
 
-.add-book-button > button{
+#add-book-button > button{
     width: 100%;
     background-color: var(--cafe-noir);
     border: 0;
@@ -38,33 +38,62 @@ body{
     box-shadow: 2px 3px 5px black;
 }
 
-.add-book-button > button:hover{
+#add-book-button > button:hover{
     background-color: #cc895d;
     color: var(--cafe-noir);
     box-shadow: 4px 5px 5px black;
+    cursor: pointer;
 }
 
 #book-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 50px 50px;
     margin-top: 50px;
 
 }
 
+.read-button{
+    padding: 1em;
+    color: var(--cream);
+    background-color: var(--cafe-noir);
+    border-radius: 40px;
+}
+
+.unread-button{
+    padding: 1em;
+    background-color: var(--hunter-green);
+    color: var(--cream);
+    border-radius: 40px;
+}
+
+.unread-button:hover{
+    color: var(--cream);
+    cursor: pointer;
+
+}
+
+
+.read-button:hover{
+    color: var(--cream);
+    cursor: pointer;
+
+}
+
+
 
 .card{
-    height: 200px;
+    height: 10em;
+    text-align: center;
     position: relative;
     background-color: #cc895d;
     border: 3px solid var(--cafe-noir);
     border-radius: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    padding-top: 5%;
-
+    padding-top: 55px;    
     color: var(--cream);
     font-size: 150%;
 }
@@ -106,6 +135,7 @@ body{
 
 .delete-button:hover{
     background-color: var(--dark-gren);
+    cursor: pointer;
 }
 
 
