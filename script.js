@@ -10,7 +10,6 @@ function Book(title, author, pages, read){
     this.read=read;
 }
 
-
 function iterateLibrary(){
     for (let i = 0; i < myLibrary.length; i++){
         console.log(myLibrary[i].title);
@@ -78,25 +77,55 @@ function addBookToLibrary(title, author, pages, read){
         iterateLibrary();
     })
 
-
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
     card.appendChild(cardPages);
     card.appendChild(cardRead);
-
-
-
-
 }
 
-addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
-addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
 
+addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
+addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
+addBookToLibrary("Bluets", "Maggie Nelson", "112 pages", true);
+addBookToLibrary("The Hour of the Star", "Clarice Lispector", "120 pages", true);
+addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
+addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
+addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
+addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
 
 newBook.addEventListener('click', ()=>{
-    addBookToLibrary("The Vintage Book of Contemporary American Poetry", "J.D. McClatchy", "656 pages", true);
+    dialog.showModal();
     iterateLibrary();
 })
 
 
+const dialog = document.querySelector("dialog");
 
+const confirmBtn = document.getElementById("confirmBtn");
+
+confirmBtn.addEventListener("click", ()=>{
+
+    const formTitle = document.getElementById("form-title").value;
+    const formAuthor = document.getElementById("form-author").value;
+    const formPages = document.getElementById("form-pages").value + " pages";
+    const formExplanation = document.getElementById("form-read").checked;
+
+
+
+    console.log("hi");
+    console.log(formTitle);
+    console.log(formAuthor);
+    console.log(formPages);
+    console.log(formExplanation);
+
+
+    addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
+
+})
+
+
+
+const closeButton = document.getElementById("add-book-close-button");
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});

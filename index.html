@@ -12,10 +12,32 @@
         Welcome to the Erisian Library!
     </div>
     <div id="add-book-button">
-        <button type="button">Add a New Book</button>
-    </div>
+        <button type="button">Add a New Book</button></div>
+        <dialog>
+            <button autofocus id="add-book-close-button">-</button>
+            <form method="dialog" id="user-input">
+                <div class="form-explanation" id="form-explanation-title">Book Title</div>
+                <input type="text" id="form-title" placeholder="The Odyssey" required>
+
+                <div class="form-explanation">Book Author</div>
+                <input type="text" id="form-author" placeholder="Homer" required>
+
+                <div class="form-explanation">How many pages?</div>
+                <input type="number" id="form-pages" placeholder="416" required>
+
+                <div class="form-explanation" id="read-question">Have you read it?</div>
+                <input type="checkbox" id="form-read">
+
+                <button id="confirmBtn" value="default">Add Book</button>
+            </form>
+
+
+
+          </dialog>
+          
    </div>
    <div id="book-cards">
+    
     
         
 

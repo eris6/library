@@ -1,5 +1,5 @@
 :root{
-    --dark-gren: #102820;
+    --dark-green: #102820;
     --hunter-green: #4C6444;
     --khaki: #CABA9C;
     --cream: #F2E3D5;
@@ -26,6 +26,66 @@ body{
     font-size: 4.5rem;
 }
 
+dialog{
+    background-color: var(--raw-umber);
+    color: var(--cream);
+    border: none;
+    width: 50%;
+    height: 75%;
+    border-radius: 40px;
+}
+
+input{
+    margin-bottom: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: var(--cream);
+    border: none;
+}
+
+#read-question{
+    margin-bottom: 20px;
+}
+
+#form-title, #form-author{
+    width: 100%;
+}
+
+#form-pages{
+    width: 30%;
+}
+
+#form-explanation-title{
+    margin-top: 60px;
+}
+
+input[type="text"], input[type="number"]{
+    font-size:1.5rem;
+}
+
+input[type="checkbox"]{
+    transform: scale(4);
+}
+
+
+.form-explanation{
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+
+
+
+#user-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#add-book-close-button{
+    width: 50%;
+}
 
 #add-book-button > button{
     width: 100%;
@@ -81,6 +141,25 @@ body{
 }
 
 
+#confirmBtn{
+    width: 60%;
+    background-color: var(--cafe-noir);
+    border: 0;
+    color: var(--cream);
+    padding: 1em;
+    font-size: 1.5rem;
+    border-radius: 40px;
+    box-shadow: 2px 3px 5px black;
+    margin-top: 10px;
+}
+
+#confirmBtn:hover{
+    background-color: #cc895d;
+    color: var(--cafe-noir);
+    box-shadow: 4px 5px 5px black;
+    cursor: pointer;
+
+}
 
 .card{
     height: 10em;
@@ -100,20 +179,30 @@ body{
 
 
 
-.card-delete{
-    height: 200px;
-    position: relative;
-    background-color: #cc895d;
-    border: 3px solid var(--cafe-noir);
-    border-radius: 40px;
+#add-book-close-button{
+    background-color: var(--hunter-green);
+    color: var(--cream);
+    font-size: 4em;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: block;
+    float:right;
+    margin:10px 10px 0 0;
+    position: absolute;
+    top: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    color: var(--cream);
-    font-size: 150%;
+    right: 0;
+    border: 2px solid var(--dark-green);
 }
+
+#add-book-close-button:hover{
+    cursor: pointer;
+    background-color: var(--dark-green);
+}
+
 
 
 .delete-button{
@@ -130,16 +219,25 @@ body{
     justify-content: center;
     align-items: center;
     right: 0;
-    border: 2px solid var(--dark-gren);
+    border: 2px solid var(--dark-green);
 }
 
 .delete-button:hover{
-    background-color: var(--dark-gren);
+    background-color: var(--dark-green);
     cursor: pointer;
 }
 
 
-
-
-
-
+::backdrop {
+    background-image: linear-gradient(
+      45deg,
+      var(--cafe-noir),
+      var(--cream),
+      var(--dark-green),
+      var(--hunter-green),
+      var(--raw-umber),
+      var(--khaki)
+    );
+    opacity: 0.75;
+  }
+  
