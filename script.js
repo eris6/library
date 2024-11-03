@@ -1,5 +1,7 @@
 const bookCards = document.getElementById("book-cards");
 const newBook = document.getElementById("add-book-button");
+const dialog = document.querySelector("dialog");
+const confirmBtn = document.getElementById("confirmBtn");
 
 let myLibrary = [];
 
@@ -71,7 +73,6 @@ function addBookToLibrary(title, author, pages, read){
     })
 
     deleteButton.addEventListener("click", ()=>{
-        console.log('hi');
         bookCards.removeChild(card);
         myLibrary = myLibrary.filter((book) => book != addedBook);
         iterateLibrary();
@@ -93,32 +94,20 @@ addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
 addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
 addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
 
+
 newBook.addEventListener('click', ()=>{
+    document.getElementById("form-title").value = null;
+    document.getElementById("form-author").value = null;
+    document.getElementById("form-pages").value = null;
     dialog.showModal();
-    iterateLibrary();
 })
 
 
-const dialog = document.querySelector("dialog");
-
-const confirmBtn = document.getElementById("confirmBtn");
-
 confirmBtn.addEventListener("click", ()=>{
-
     const formTitle = document.getElementById("form-title").value;
     const formAuthor = document.getElementById("form-author").value;
     const formPages = document.getElementById("form-pages").value + " pages";
     const formExplanation = document.getElementById("form-read").checked;
-
-
-
-    console.log("hi");
-    console.log(formTitle);
-    console.log(formAuthor);
-    console.log(formPages);
-    console.log(formExplanation);
-
-
     addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
 
 })

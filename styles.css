@@ -73,9 +73,6 @@ input[type="checkbox"]{
     margin-bottom: 20px;
 }
 
-
-
-
 #user-input{
     display: flex;
     flex-direction: column;
