@@ -5,10 +5,11 @@ const confirmBtn = document.getElementById("confirmBtn");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read){
+function Book(title, author, pagesRead, pagesUnread, read){
     this.title=title;
     this.author=author;
-    this.pages=pages;
+    this.pagesRead=pagesRead;
+    this.pagesUnread=pagesUnread;
     this.read=read;
 }
 
@@ -16,15 +17,16 @@ function iterateLibrary(){
     for (let i = 0; i < myLibrary.length; i++){
         console.log(myLibrary[i].title);
         console.log(myLibrary[i].author);
-        console.log(myLibrary[i].pages);
+        console.log(myLibrary[i].pagesRead);
+        console.log(myLibrary[i].pagesUnread);
         console.log(myLibrary[i].read);
         console.log("-------------------")
     }
 }
 
 
-function addBookToLibrary(title, author, pages, read){
-    let addedBook = new Book(title, author, pages, read);
+function addBookToLibrary(title, author, pagesRead, pagesUnread, read){
+    let addedBook = new Book(title, author, pagesRead, pagesUnread, read);
     myLibrary.push(addedBook);
     createCard(addedBook);
 }
@@ -45,8 +47,7 @@ function createCard(addedBook){
     const cardAuthor = document.createElement("div");
     cardAuthor.textContent = addedBook.author;
     const cardPages = document.createElement("div");
-    cardPages.textContent = addedBook.pages;
-
+    cardPages.textContent = addedBook.pagesRead + " / " + addedBook.pagesUnread + " pages";
     const cardRead = document.createElement("div");
 
     if(addedBook.read){
@@ -79,6 +80,8 @@ function createCard(addedBook){
     deleteButton.addEventListener("click", ()=>{
         bookCards.removeChild(card);
         myLibrary = myLibrary.filter((book) => book != addedBook);
+        iterateLibrary();
+
     })
 
     card.appendChild(cardTitle);
@@ -90,16 +93,18 @@ function createCard(addedBook){
 newBook.addEventListener('click', ()=>{
     document.getElementById("form-title").value = null;
     document.getElementById("form-author").value = null;
-    document.getElementById("form-pages").value = null;
+    document.getElementById("form-pages-to-read").value = null;
+    document.getElementById("form-pages-read").value = null;
     dialog.showModal();
 })
 
 confirmBtn.addEventListener("click", ()=>{
     const formTitle = document.getElementById("form-title").value;
     const formAuthor = document.getElementById("form-author").value;
-    const formPages = document.getElementById("form-pages").value + " pages";
+    const formPagesRead = document.getElementById("form-pages-read").value 
+    const formPagesUnread = document.getElementById("form-pages-to-read").value;
     const formExplanation = document.getElementById("form-read").checked;
-    addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
+    addBookToLibrary(formTitle, formAuthor, formPagesRead, formPagesUnread, formExplanation);
 
 })
 
@@ -109,11 +114,11 @@ closeButton.addEventListener("click", () => {
 });
 
 
-addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
-addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
-addBookToLibrary("Bluets", "Maggie Nelson", "112 pages", true);
-addBookToLibrary("The Hour of the Star", "Clarice Lispector", "120 pages", true);
-addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
-addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
-addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
-addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
+addBookToLibrary("Eros the Bittersweet", "Anne Carson", 170, 170, true);
+addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", 436, 565, false);
+addBookToLibrary("Bluets", "Maggie Nelson", 112, 112, true);
+addBookToLibrary("The Hour of the Star", "Clarice Lispector", 120, 120, true);
+addBookToLibrary("Close to the Knives", "David Wojnarowicz", 288, 288, true);
+addBookToLibrary("Just Kids", "Patti Smith", 125, 278, false);
+addBookToLibrary("Giovanni's Room", "James Baldwin", 34, 159, false);
+addBookToLibrary("Customs","Solmaz Sharif",60, 72, true)

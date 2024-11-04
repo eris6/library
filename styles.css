@@ -31,7 +31,7 @@ dialog{
     color: var(--cream);
     border: none;
     width: 50%;
-    height: 75%;
+    height: 90%;
     border-radius: 40px;
 }
 
@@ -48,11 +48,11 @@ input{
 }
 
 #form-title, #form-author{
-    width: 100%;
+    width: 90%;
 }
 
-#form-pages{
-    width: 30%;
+#form-pages-read, #form-pages-to-read{
+    width: 90%;
 }
 
 #form-explanation-title{
@@ -61,10 +61,19 @@ input{
 
 input[type="text"], input[type="number"]{
     font-size:1.5rem;
+    border-radius: 40px;
+    padding-left: 5%;
 }
 
 input[type="checkbox"]{
     transform: scale(4);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.all-pages{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 
@@ -194,6 +203,7 @@ input[type="checkbox"]{
     align-items: center;
     right: 0;
     border: 2px solid var(--dark-green);
+    margin-bottom: 5%;
 }
 
 #add-book-close-button:hover{
@@ -238,7 +248,7 @@ input[type="checkbox"]{
     );
     opacity: 0.75;
   }
-  
+
 
   @media (max-width: 480px) {
     #add-book-close-button {
