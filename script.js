@@ -127,7 +127,7 @@ closeButton.addEventListener("click", () => {
 
 
 addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
-addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
+addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", "565 pages", false);
 addBookToLibrary("Bluets", "Maggie Nelson", "112 pages", true);
 addBookToLibrary("The Hour of the Star", "Clarice Lispector", "120 pages", true);
 addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
