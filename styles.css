@@ -146,11 +146,11 @@ input[type="checkbox"]{
     background-color: var(--cafe-noir);
     border: 0;
     color: var(--cream);
-    padding: 1em;
+    padding: 10px;
     font-size: 1.5rem;
     border-radius: 40px;
     box-shadow: 2px 3px 5px black;
-    margin-top: 10px;
+    margin-top: 4%;
 }
 
 #confirmBtn:hover{
