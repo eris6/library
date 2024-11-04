@@ -46,14 +46,17 @@ function createCard(addedBook){
     deleteButton.textContent="-"
     card.appendChild(deleteButton);
 
+
     const cardTitle = document.createElement("div");
     cardTitle.textContent = addedBook.title;
     const cardAuthor = document.createElement("div");
     cardAuthor.textContent = addedBook.author;
     const cardPages = document.createElement("div");
     cardPages.textContent = addedBook.pages;
-
     const cardRead = document.createElement("div");
+
+
+    
 
     if(addedBook.read){
         cardRead.classList.add("read-button");
@@ -105,7 +108,15 @@ confirmBtn.addEventListener("click", ()=>{
     const formAuthor = document.getElementById("form-author").value;
     const formPages = document.getElementById("form-pages").value + " pages";
     const formExplanation = document.getElementById("form-read").checked;
-    addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
+    
+
+    if (formTitle!== "" && formAuthor !== "" && formPages !== ""){
+        addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
+    }
+    
+    
+
+    
 
 })
 
