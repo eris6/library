@@ -130,14 +130,11 @@ input[type="checkbox"]{
 .unread-button:hover{
     color: var(--cream);
     cursor: pointer;
-
 }
-
 
 .read-button:hover{
     color: var(--cream);
     cursor: pointer;
-
 }
 
 

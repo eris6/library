@@ -5,11 +5,10 @@ const confirmBtn = document.getElementById("confirmBtn");
 
 let myLibrary = [];
 
-function Book(title, author, pagesRead, pagesUnread, read){
+function Book(title, author, pages, read){
     this.title=title;
     this.author=author;
-    this.pagesRead=pagesRead;
-    this.pagesUnread=pagesUnread;
+    this.pages=pages;
     this.read=read;
 }
 
@@ -17,16 +16,15 @@ function iterateLibrary(){
     for (let i = 0; i < myLibrary.length; i++){
         console.log(myLibrary[i].title);
         console.log(myLibrary[i].author);
-        console.log(myLibrary[i].pagesRead);
-        console.log(myLibrary[i].pagesUnread);
+        console.log(myLibrary[i].pages);
         console.log(myLibrary[i].read);
         console.log("-------------------")
     }
 }
 
 
-function addBookToLibrary(title, author, pagesRead, pagesUnread, read){
-    let addedBook = new Book(title, author, pagesRead, pagesUnread, read);
+function addBookToLibrary(title, author, pages, read){
+    let addedBook = new Book(title, author, pages, read);
     myLibrary.push(addedBook);
     createCard(addedBook);
 }
@@ -36,6 +34,12 @@ function createCard(addedBook){
     const card = document.createElement("div");
     card.classList.add("card");
     bookCards.appendChild(card);
+
+    colorSet = ["#AA7DB1", "#EC154F", "#096735", "#F26722", "#5BBD4E", 
+        "#12213F", "#066866", "#0291B5", "#9E7626", "#65491B", "#B700E1", "#3E0092", "#5B01AE",
+    "#8D01D3", "#81322A", "#C45E46", "#A38579", "#AA594E", "#114847", "#900C0F", "#646665", "#424739"];
+
+    card.style.backgroundColor=colorSet[Math.floor(Math.random() * colorSet.length)];
 
     const deleteButton = document.createElement("div");
     deleteButton.classList.add("delete-button");
@@ -47,7 +51,8 @@ function createCard(addedBook){
     const cardAuthor = document.createElement("div");
     cardAuthor.textContent = addedBook.author;
     const cardPages = document.createElement("div");
-    cardPages.textContent = addedBook.pagesRead + " / " + addedBook.pagesUnread + " pages";
+    cardPages.textContent = addedBook.pages;
+
     const cardRead = document.createElement("div");
 
     if(addedBook.read){
@@ -80,8 +85,6 @@ function createCard(addedBook){
     deleteButton.addEventListener("click", ()=>{
         bookCards.removeChild(card);
         myLibrary = myLibrary.filter((book) => book != addedBook);
-        iterateLibrary();
-
     })
 
     card.appendChild(cardTitle);
@@ -93,18 +96,16 @@ function createCard(addedBook){
 newBook.addEventListener('click', ()=>{
     document.getElementById("form-title").value = null;
     document.getElementById("form-author").value = null;
-    document.getElementById("form-pages-to-read").value = null;
-    document.getElementById("form-pages-read").value = null;
+    document.getElementById("form-pages").value = null;
     dialog.showModal();
 })
 
 confirmBtn.addEventListener("click", ()=>{
     const formTitle = document.getElementById("form-title").value;
     const formAuthor = document.getElementById("form-author").value;
-    const formPagesRead = document.getElementById("form-pages-read").value 
-    const formPagesUnread = document.getElementById("form-pages-to-read").value;
+    const formPages = document.getElementById("form-pages").value + " pages";
     const formExplanation = document.getElementById("form-read").checked;
-    addBookToLibrary(formTitle, formAuthor, formPagesRead, formPagesUnread, formExplanation);
+    addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
 
 })
 
@@ -114,11 +115,11 @@ closeButton.addEventListener("click", () => {
 });
 
 
-addBookToLibrary("Eros the Bittersweet", "Anne Carson", 170, 170, true);
-addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", 436, 565, false);
-addBookToLibrary("Bluets", "Maggie Nelson", 112, 112, true);
-addBookToLibrary("The Hour of the Star", "Clarice Lispector", 120, 120, true);
-addBookToLibrary("Close to the Knives", "David Wojnarowicz", 288, 288, true);
-addBookToLibrary("Just Kids", "Patti Smith", 125, 278, false);
-addBookToLibrary("Giovanni's Room", "James Baldwin", 34, 159, false);
-addBookToLibrary("Customs","Solmaz Sharif",60, 72, true)
+addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
+addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
+addBookToLibrary("Bluets", "Maggie Nelson", "112 pages", true);
+addBookToLibrary("The Hour of the Star", "Clarice Lispector", "120 pages", true);
+addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
+addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
+addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
+addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
