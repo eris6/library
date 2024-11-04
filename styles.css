@@ -80,9 +80,7 @@ input[type="checkbox"]{
     align-items: center;
 }
 
-#add-book-close-button{
-    width: 50%;
-}
+
 
 #add-book-button > button{
     width: 100%;
