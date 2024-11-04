@@ -52,7 +52,8 @@ input{
 }
 
 #form-pages-read, #form-pages-to-read{
-    width: 90%;
+    width: 30%;
+    text-align: center;
 }
 
 #form-explanation-title{
@@ -69,11 +70,6 @@ input[type="checkbox"]{
     transform: scale(4);
     margin-top: 5%;
     margin-bottom: 5%;
-}
-
-.all-pages{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 
