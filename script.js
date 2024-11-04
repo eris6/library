@@ -26,7 +26,11 @@ function iterateLibrary(){
 function addBookToLibrary(title, author, pages, read){
     let addedBook = new Book(title, author, pages, read);
     myLibrary.push(addedBook);
+    createCard(addedBook);
+}
 
+
+function createCard(addedBook){
     const card = document.createElement("div");
     card.classList.add("card");
     bookCards.appendChild(card);
@@ -75,7 +79,6 @@ function addBookToLibrary(title, author, pages, read){
     deleteButton.addEventListener("click", ()=>{
         bookCards.removeChild(card);
         myLibrary = myLibrary.filter((book) => book != addedBook);
-        iterateLibrary();
     })
 
     card.appendChild(cardTitle);
@@ -84,24 +87,12 @@ function addBookToLibrary(title, author, pages, read){
     card.appendChild(cardRead);
 }
 
-
-addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
-addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
-addBookToLibrary("Bluets", "Maggie Nelson", "112 pages", true);
-addBookToLibrary("The Hour of the Star", "Clarice Lispector", "120 pages", true);
-addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
-addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
-addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
-addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
-
-
 newBook.addEventListener('click', ()=>{
     document.getElementById("form-title").value = null;
     document.getElementById("form-author").value = null;
     document.getElementById("form-pages").value = null;
     dialog.showModal();
 })
-
 
 confirmBtn.addEventListener("click", ()=>{
     const formTitle = document.getElementById("form-title").value;
@@ -112,9 +103,17 @@ confirmBtn.addEventListener("click", ()=>{
 
 })
 
-
-
 const closeButton = document.getElementById("add-book-close-button");
 closeButton.addEventListener("click", () => {
   dialog.close();
 });
+
+
+addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
+addBookToLibrary("Crime and Punishment", "Fydor Dostoevsky", "565 pages", false);
+addBookToLibrary("Bluets", "Maggie Nelson", "112 pages", true);
+addBookToLibrary("The Hour of the Star", "Clarice Lispector", "120 pages", true);
+addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
+addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
+addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
+addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
