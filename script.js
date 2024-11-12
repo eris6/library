@@ -15,7 +15,6 @@ class Book{
     }
 }
 
-
 function iterateLibrary(){
     for (let i = 0; i < myLibrary.length; i++){
         console.log(myLibrary[i].title);
@@ -25,7 +24,6 @@ function iterateLibrary(){
         console.log("-------------------")
     }
 }
-
 
 function addBookToLibrary(title, author, pages, read){
     let addedBook = new Book(title, author, pages, read);
@@ -59,9 +57,6 @@ function createCard(addedBook){
     const cardPages = document.createElement("div");
     cardPages.textContent = addedBook.pages;
     const cardRead = document.createElement("div");
-
-
-    
 
     if(addedBook.read){
         cardRead.classList.add("read-button");
@@ -118,11 +113,6 @@ confirmBtn.addEventListener("click", ()=>{
     if (formTitle!== "" && formAuthor !== "" && formPages !== ""){
         addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
     }
-    
-    
-
-    
-
 })
 
 const closeButton = document.getElementById("add-book-close-button");
