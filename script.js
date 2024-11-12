@@ -5,12 +5,16 @@ const confirmBtn = document.getElementById("confirmBtn");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read){
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.read=read;
+class Book{
+    constructor(title, author, pages, read){
+        this.title=title;
+        this.author=author;
+        this.pages=pages;
+        this.read=read;
+    
+    }
 }
+
 
 function iterateLibrary(){
     for (let i = 0; i < myLibrary.length; i++){
@@ -38,6 +42,7 @@ function createCard(addedBook){
     colorSet = ["#AA7DB1", "#EC154F", "#096735", "#F26722", "#5BBD4E", 
         "#12213F", "#066866", "#0291B5", "#9E7626", "#65491B", "#B700E1", "#3E0092", "#5B01AE",
     "#8D01D3", "#81322A", "#C45E46", "#A38579", "#AA594E", "#114847", "#900C0F", "#646665", "#424739"];
+
 
     card.style.backgroundColor=colorSet[Math.floor(Math.random() * colorSet.length)];
 
