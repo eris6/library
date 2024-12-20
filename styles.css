@@ -229,6 +229,16 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 
+#form-pages-error{
+    margin-bottom: 10%;
+}
+
+/* input:invalid {
+    border: 10px solid #900;
+    background-color: #fdd;
+} */
+  
+
 
 ::backdrop {
     background-image: linear-gradient(

@@ -11,7 +11,6 @@ class Book{
         this.author=author;
         this.pages=pages;
         this.read=read;
-    
     }
 }
 
@@ -101,24 +100,84 @@ newBook.addEventListener('click', ()=>{
     document.getElementById("form-author").value = null;
     document.getElementById("form-pages").value = null;
     dialog.showModal();
+    validateForm();
 })
 
 confirmBtn.addEventListener("click", ()=>{
-    const formTitle = document.getElementById("form-title").value;
-    const formAuthor = document.getElementById("form-author").value;
-    const formPages = document.getElementById("form-pages").value + " pages";
+
+
+    const formTitle = document.getElementById("form-title");
+    const formAuthor = document.getElementById("form-author");
+    const formPages = document.getElementById("form-pages");
     const formExplanation = document.getElementById("form-read").checked;
     
+    const formTitleValue = formTitle.value;
+    const formAuthorValue = formAuthor.value;
+    const formPagesValue = formPages.value + " pages";
 
-    if (formTitle!== "" && formAuthor !== "" && formPages !== ""){
-        addBookToLibrary(formTitle, formAuthor, formPages, formExplanation);
+    if (formTitleValue!== "" && formAuthorValue !== "" && formPagesValue !== "" && formPages.checkValidity()){
+        addBookToLibrary(formTitleValue, formAuthorValue, formPagesValue, formExplanation);
     }
+    
+    
 })
 
 const closeButton = document.getElementById("add-book-close-button");
 closeButton.addEventListener("click", () => {
   dialog.close();
 });
+
+function validateForm(){
+    const pageNumber = document.getElementById("form-pages");
+
+const inputElements = document.querySelectorAll("input");
+
+
+
+inputElements.forEach((ele) => {
+    if (!ele.valid){
+        ele.style.border = "10px solid #900";
+    }
+
+    ele.addEventListener("input", (event) => {
+        if (ele.validity.valid && !ele.validity.valueMissing){
+            ele.style.border = "none";
+        }
+        else{
+            ele.style.border = "10px solid #900";
+        }
+        
+    })
+})
+
+pageNumber.addEventListener("input", (event) => {
+    const formPages = document.getElementById("form-pages");
+    const pageNumberError = document.getElementById("form-pages-error");
+    if (formPages.value < 1){
+        const pageNumberError = document.getElementById("form-pages-error");
+        pageNumberError.textContent = "Page number value needs to be greater than zero!";
+        formPages.setCustomValidity("Must be greater than zero!");
+    }
+    else{
+        formPages.setCustomValidity("");
+    }
+
+
+
+    if (pageNumber.validity.valid && pageNumber.value > 0){
+        pageNumber.style.border = "none";
+        pageNumberError.textContent = "";
+        pageNumberError.style.padding = "0%";
+    }
+    else{
+        pageNumber.style.border = "10px solid #900";
+        pageNumberError.textContent = "Page number value needs to be greater than zero!";
+        pageNumberError.style.backgroundColor = "#900";
+        pageNumberError.style.padding = "5%";
+        pageNumberError.style.borderRadius = "30px";
+    }
+})
+}
 
 
 addBookToLibrary("Eros the Bittersweet", "Anne Carson", "170 pages", true);
@@ -129,3 +188,8 @@ addBookToLibrary("Close to the Knives", "David Wojnarowicz", "288 pages", true);
 addBookToLibrary("Just Kids", "Patti Smith", "278 pages", false);
 addBookToLibrary("Giovanni's Room", "James Baldwin", "159 pages", false);
 addBookToLibrary("Customs","Solmaz Sharif","72 pages", true)
+
+
+validateForm();
+
+
